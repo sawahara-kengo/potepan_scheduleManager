@@ -1,0 +1,30 @@
+<!-- /schedules/:id/edit -->
+<div class="edit">
+    <p class="title">スケジュールの編集</p>
+    <form class="row g-3">
+        <div class="form-group">
+            <label for="title" class="required">タイトル</label>
+            <input type="text" class="form-control" id="title" placeholder="タイトル">
+        </div>
+            <div class="form-group col-6">
+                <label for="start" class="required">開始日</label>
+                <input type="date" class="form-control" id="start" placeholder="----/--/--">
+            </div>
+            <div class="form-group col-6">
+                <label for="end" class="required">終了日</label>
+                <input type="date" class="form-control" id="end" placeholder="----/--/--">
+            </div>
+        <div class="form-group">
+            <input type="checkbox" class="form-check-input" id="allDay">
+            <label for="allDay"><span aria-hidden="true">&larr;</span> 終日の場合はチェック</label>
+        </div>
+        <div class="form-group">
+            <label for="memo">メモ</label>
+            <textarea class="form-control" id="memo" rows="3" placeholder="メモを入力"></textarea>
+        </div>
+        <div class="form-group buttons">
+            <a href="/schedules"><button type="button" class="btn btn-secondary">キャンセル</button></a>
+            <button type="submit" class="btn btn-primary">保存</button>
+        </div>
+    </form>
+</div>

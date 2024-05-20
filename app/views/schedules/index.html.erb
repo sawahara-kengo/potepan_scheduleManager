@@ -1,9 +1,9 @@
-<!-- homeアクションで表示される内容 -->
+<!-- /schedules -->
 <div class="index container-fluid">
     <div class="indexHeader">
         <p class="indexHeaderTitle">スケジュール一覧</p>
-        <button class="btn btn-success flex-shrink-0">
-            ＋ 新規追加
+        <button class="btn btn-success">
+            <a href="/schedules/new">＋ 新規追加</a>
         </button>
     </div>
 
@@ -17,9 +17,9 @@
                     <th scope="col">終了日</th>
                     <th scope="col">終日</th>
                     <th scope="col">更新日時</th>
-                    <th scope="col">詳細表示</th>
-                    <th scope="col">編集</th>
-                    <th scope="col">削除</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -30,9 +30,9 @@
                     <td>セル</td>
                     <td>セル</td>
                     <td>セル</td>
-                    <td>リンク</td>
-                    <td>リンク</td>
-                    <td>リンク</td>
+                    <td><a href="/schedules/id">詳細</a href="/schedules/id"></td>
+                    <td><a href="/schedules/id/edit">編集</a></td>
+                    <td>削除</td>
                 </tr>
             </tbody>
         </table>

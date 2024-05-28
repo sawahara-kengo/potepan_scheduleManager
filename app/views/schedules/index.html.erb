@@ -1,7 +1,7 @@
 <!-- /schedules -->
 <div class="index container-fluid">
     <div class="indexHeader">
-        <p class="indexHeaderTitle">スケジュール一覧</p>
+        <p class="indexHeaderTitle">すべてのスケジュール</p>
         <button class="btn btn-success">
             <a href="/schedules/new">＋ 新規追加</a>
         </button>
@@ -23,23 +23,40 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>セル</td>
-                    <td>セル</td>
-                    <td>セル</td>
-                    <td>セル</td>
-                    <td>セル</td>
-                    <td><a href="/schedules/id">詳細</a href="/schedules/id"></td>
-                    <td><a href="/schedules/id/edit">編集</a></td>
-                    <td>削除</td>
-                </tr>
+                <% if @schedules.count > 0 %>
+                    <% @schedules.each do |schedule| %>
+                        <tr>
+                            <td><% schedule.id %></td>
+                            <td><% schedule.title_column %></td>
+                            <td><% schedule.start_date.strftime("%Y/%m/%d") %></td>
+                            <td><% schedule.end_date.strftime("%Y/%m/%d") %></td>
+                            <td>
+                                <% if schedule.allday_enabled %>
+                                    ◯
+                                <% end %>
+                            </td>
+                            <td><% schedule.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
+                            <td><%= link_to "詳細", [:schedule] %></td>
+                            <td><%= link_to "編集", [:edit_schedule] %></td>
+                            <td><%= link_to "削除", :schedule, method: :delete %></td>
+                        </tr>
+                    <% end %>
+                <% else %>
+                    <td colspan="9">現在登録されているスケジュールはありません</td>
+                <% end %>
             </tbody>
         </table>
     </div>
 
     <div class="indexFooter card-body">
-        <p>合計スケジュール数：<span>00</span>件</p>
-        <p>本日の日付：<span>2024/05/01</span></P>
+        <p>合計スケジュール数：
+            <% if @schedules.count > 0 %>
+                <%= @schedules.count %>
+            <% else %>
+                0
+            <% end %>
+            件
+        </p>
+        <p>本日の日付：<%= Time.zone.today.strftime("%Y/%m/%d") %></p>
     </div>
 </div>

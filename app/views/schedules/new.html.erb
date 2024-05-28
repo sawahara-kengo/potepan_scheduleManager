@@ -1,30 +1,39 @@
 <!-- /schedules/new -->
 <div class="new">
     <p class="title">スケジュール登録</p>
-    <form class="row g-3">
+
+    <%= form_with model: @schedule do |f| %>
         <div class="form-group">
-            <label for="title" class="required">タイトル</label>
-            <input type="text" class="form-control" id="title" placeholder="タイトル">
+            <%= f.label :title, "タイトル", class: "required" %>
+            <%= f.text_field :title, class: "form-control", placeholder: "タイトル" %>
         </div>
-            <div class="form-group col-6">
-                <label for="start" class="required">開始日</label>
-                <input type="date" class="form-control" id="start" placeholder="----/--/--">
+
+        <div class="form-group row">
+            <div class="col-6">
+                <%= f.label :start, "開始日", class: "required" %>
+                <%= f.date_field :start, class: "form-control", placeholder: "----/--/--" %>
             </div>
-            <div class="form-group col-6">
-                <label for="end" class="required">終了日</label>
-                <input type="date" class="form-control" id="end" placeholder="----/--/--">
+
+            <div class="col-6">
+                <%= f.label :end, "終了日", class: "required" %>
+                <%= f.date_field :end, class: "form-control", placeholder: "----/--/--" %>
             </div>
-        <div class="form-group">
-            <input type="checkbox" class="form-check-input" id="allDay">
-            <label for="allDay"><span aria-hidden="true">&larr;</span> 終日の場合はチェック</label>
         </div>
+
         <div class="form-group">
-            <label for="memo">メモ</label>
-            <textarea class="form-control" id="memo" rows="3" placeholder="メモを入力"></textarea>
+            <%= f.check_box :allDay %>
+            <%= f.label :allDay, "<span aria-hidden='true'>&larr;</span> 終日の場合はチェック".html_safe %>
+                <!--html_safeは、ラベルに含まれているHTMLタグ(span)が正常にレンダリングされるように記載している-->
         </div>
+
+        <div class="form-group">
+            <%= f.label :memo, "メモ" %>
+            <%= f.text_area :memo, class: "form-control", rows: 3, placeholder: "メモを入力"%>
+        </div>
+
         <div class="form-group buttons">
-            <a href="/schedules"><button type="button" class="btn btn-secondary">キャンセル</button></a>
-            <button type="submit" class="btn btn-primary">登録</button>
+            <%= link_to "キャンセル", :schedules, class: "btn btn-secondary" %>
+            <%= f.submit "登録", class: "btn btn-primary" %>
         </div>
-    </form>
+    <% end %>
 </div>

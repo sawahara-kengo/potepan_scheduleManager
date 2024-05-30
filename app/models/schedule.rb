@@ -1,3 +1,5 @@
 class Schedule < ApplicationRecord
-    validates :title_column, presence: true
+    validates :title, presence: true
+    validates :start, presence: true
+    validates :end, presence: true
 end

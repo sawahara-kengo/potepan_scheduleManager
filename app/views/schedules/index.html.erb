@@ -2,18 +2,13 @@
 <div class="index container-fluid">
 
     <% if flash[:notice] %>
-        <div class="notice">
-            <p>
-                <%= flash[:notice] %><br>
-                を作成しました！
-            </p>
-        </div>
+        <p class="notice"><%= flash[:notice] %></p>
     <% end %>
 
     <div class="indexHeader">
         <p class="indexHeaderTitle">すべてのスケジュール</p>
         <button class="btn btn-success">
-            <%= link_to "<span aria-hidden='true'>+</span> 新規作成".html_safe, :new_schedule %>
+            <%= link_to "<span aria-hidden='true'>+</span> 新規登録".html_safe, :new_schedule %>
             <!--html_safeは、ラベルに含まれているHTMLタグ(span)が正常にレンダリングされるように記載している-->
         </button>
     </div>
@@ -38,18 +33,18 @@
                     <% @schedules.each do |schedule| %>
                         <tr>
                             <td><%= schedule.id %></td>
-                            <td><%= schedule.title_column %></td>
-                            <td><%= schedule.start_date.strftime("%Y/%m/%d") %></td>
-                            <td><%= schedule.end_date.strftime("%Y/%m/%d") %></td>
+                            <td><%= schedule.title %></td>
+                            <td><%= schedule.start.strftime("%Y/%m/%d") %></td>
+                            <td><%= schedule.end.strftime("%Y/%m/%d") %></td>
                             <td>
-                                <% if schedule.allday_enabled %>
+                                <% if schedule.allDay %>
                                     ◯
                                 <% end %>
                             </td>
                             <td><%= schedule.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
-                            <td><%= link_to "詳細", [:schedule] %></td>
-                            <td><%= link_to "編集", [:edit_schedule] %></td>
-                            <td><%= link_to "削除", :schedule, method: :delete %></td>
+                            <td><%= link_to "詳細", schedule %></td>
+                            <td><%= link_to "編集", [:edit, schedule] %></td>
+                            <td><%= link_to "削除", schedule, method: :delete %></td>
                         </tr>
                     <% end %>
                 <% else %>

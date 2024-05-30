@@ -1,17 +1,13 @@
 class SchedulesController < ApplicationController
-  def schedule_params
-    params.require(:schedule).permit(:title_column, :start_date, :end_date, :allday_enabled, :memo_type)
-  end
-
   def index
     @schedules = Schedule.all
   end
 
   def create
-    @schedule = Schedule.new(schedule_params)
+    @schedule = Schedule.new(params.require(:schedule).permit(:title, :start, :end, :allDay, :memo))
 
     if @schedule.save
-      flash[:notice] = @schedule.title_column if @schedule.title_column.present?
+      flash[:notice] = "#{@schedule.title}を登録しました"
       redirect_to :schedules
     else
       render "new"

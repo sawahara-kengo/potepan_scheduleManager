@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 2024_05_26_221540) do
 
   create_table "schedules", force: :cascade do |t|
-    t.string "title_column", null: false
-    t.date "start_date", null: false
-    t.date "end_date", null: false
-    t.boolean "allday_enabled", default: false
-    t.text "memo_type"
+    t.string "title"
+    t.date "start"
+    t.date "end"
+    t.boolean "allDay"
+    t.text "memo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

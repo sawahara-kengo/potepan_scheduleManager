@@ -2,206 +2,200 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
 // =================================================================
 //ヘッダー部分
 // =================================================================
 .mainHeader {
-    width: 100%;
-    max-width: 1920px;
-    background-color: rgb(5, 91, 0);
-    color: aliceblue;
-    font-weight: 700;
-    padding: 20px 0;
+  width: 100%;
+  max-width: 1920px;
+  background-color: rgb(5, 91, 0);
+  color: aliceblue;
+  font-weight: 700;
+  padding: 20px 0;
 
-    a:link, a:visited, a:hover, a:active {
-        text-decoration: none;
-        color:inherit
-    }
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 // =================================================================
 //index画面
 // =================================================================
 .index {
-    width: 80%;
-    max-width: 1000px;
-    margin: 20px auto 0 auto;
+  width: 80%;
+  max-width: 1000px;
+  margin: 20px auto 0 auto;
 
-    .notice {
-        margin-top: 10px;
-        border: 3px solid #016320;
-        border-radius: 5px;
-        background-color: #499862;
-        color: #fff;
-        text-align: center;
-        padding: 5px 0;
+  .alert-success {
+    text-align: center;
+  }
+
+  &Header {
+    display: flex;
+    justify-content: space-between;
+
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      text-decoration: none;
+      color: inherit;
     }
 
-    &Header{
-        display: flex;
-        justify-content: space-between;
-
-        a:link, a:visited, a:hover, a:active {
-            text-decoration: none;
-            color:inherit
-        }
-
-        &Title {
-            font-weight: 700;
-            font-size: 20px;
-            margin-top: 10px;
-        }
-
-        button {
-            height: 50px;
-        }
+    &Title {
+      font-weight: 700;
+      font-size: 20px;
+      margin-top: 10px;
     }
 
-    &Main{
-        margin-top: 10px;
-        border: 1px solid #f0f0f0;
-        border-radius: 5px;
-        box-shadow: #e4e4e4;
-
-        a {
-            text-decoration: none;
-            color: rgb(4, 67, 255);
-        }
+    button {
+      height: 50px;
     }
+  }
 
-    &Footer{
-        margin-top: 30px;
-        display: flex;
-        justify-content: space-between;
-        border: 1px solid #f0f0f0;
-        border-radius: 5px;
+  &Main {
+    margin-top: 10px;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    box-shadow: #e4e4e4;
+
+    a {
+      text-decoration: none;
+      color: rgb(4, 67, 255);
     }
+  }
+
+  &Footer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+  }
 }
 
 // =================================================================
 //new画面
 // =================================================================
 .new {
-    width: 40%;
-    margin: 20px auto 0 auto;
+  width: 40%;
+  margin: 20px auto 0 auto;
 
-    .title {
-        font-weight: 700;
-        font-size: 20px;
-        margin-top: 10px;
+  .title {
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  form {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    box-shadow: #e4e4e4;
+
+    .form-group {
+      margin-bottom: 15px;
     }
 
-    form {
-        margin-top: 20px;
-        padding: 20px;
-        border: 1px solid #f0f0f0;
-        border-radius: 5px;
-        box-shadow: #e4e4e4;
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: flex-end;
-            gap: 5px;
-        }
+    .buttons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 5px;
     }
+  }
 
-    .required::after{
-        content: "*";
-        color: red;
-        margin-left: 5px;
-    }
+  .required::after {
+    content: "*";
+    color: red;
+    margin-left: 5px;
+  }
 }
 
 // =================================================================
 //edit画面
 // =================================================================
 .edit {
-    width: 40%;
-    margin: 20px auto 0 auto;
+  width: 40%;
+  margin: 20px auto 0 auto;
 
-    .title {
-        font-weight: 700;
-        font-size: 20px;
-        margin-top: 10px;
+  .title {
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  form {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    box-shadow: #e4e4e4;
+
+    .form-group {
+      margin-bottom: 15px;
     }
 
-    form {
-        margin-top: 20px;
-        padding: 20px;
-        border: 1px solid #f0f0f0;
-        border-radius: 5px;
-        box-shadow: #e4e4e4;
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: flex-end;
-            gap: 5px;
-        }
+    .buttons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 5px;
     }
+  }
 
-    .required::after{
-        content: "*";
-        color: red;
-        margin-left: 5px;
-    }
+  .required::after {
+    content: "*";
+    color: red;
+    margin-left: 5px;
+  }
 }
 
 // =================================================================
 //show画面
 // =================================================================
 .show {
-    width: 40%;
-    margin: 20px auto 0 auto;
+  width: 40%;
+  margin: 20px auto 0 auto;
 
-    a {
-        text-decoration: none;
-        color: rgb(4, 67, 255);
-        font-weight: 700;
-        font-size: smaller;
+  a {
+    text-decoration: none;
+    color: rgb(4, 67, 255);
+    font-weight: 700;
+    font-size: smaller;
+  }
+
+  section {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    box-shadow: #e4e4e4;
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
-
-    section {
-        margin-top: 20px;
-        padding: 20px;
-        border: 1px solid #f0f0f0;
-        border-radius: 5px;
-        box-shadow: #e4e4e4;
-
-        header{
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-
-            button {
-                width: 20%;
-                border-radius: 10px;
-                background-color: #fff;
-            }
-
-            a:link, a:visited, a:hover, a:active {
-                text-decoration: none;
-                color:inherit
-            }
-        }
-    }
+  }
 }
 
 // =================================================================
 //フッター部分
 // =================================================================
 .mainFooter {
-    width: 100%;
-    max-width: 1920px;
-    background-color: rgb(5, 91, 0);
-    height: 40px;
-    bottom: 0;
-    margin-top: 40px;
+  width: 100%;
+  max-width: 1920px;
+  background-color: rgb(5, 91, 0);
+  height: 40px;
+  bottom: 0;
+  margin-top: 40px;
 }

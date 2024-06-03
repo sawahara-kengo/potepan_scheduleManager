@@ -1,27 +1,32 @@
 <!-- /schedules/:id -->
 <div class="show">
-    <a href="/schedules"><span aria-hidden="true">&larr;</span> 一覧へ戻る</a>
+    <%= link_to "<span aria-hidden='true'>&larr;</span> 一覧へ戻る".html_safe, :schedules %>
+
     <section class="scheduleCard">
         <header>
-            <h2>titledata</h2>
-            <button class="btn-outline-primary"><a href="/schedules/id/edit">編集</a></button>
+            <h2><%= @schedule.title %></h2>
+            <%= link_to "内容を編集する", [:edit, @schedule], class: "btn btn-outline-primary" %>
         </header>
         <table class="table">
             <tr>
                 <th>開始日</th>
-                <td>startdata</td>
+                <td><%= @schedule.startDay.strftime("%Y/%m/%d") %></td>
             </tr>
             <tr>
                 <th>終了日</th>
-                <td>enddata</td>
+                <td><%= @schedule.endDay.strftime("%Y/%m/%d") %></td>
             </tr>
             <tr>
                 <th>終日</th>
-                <td>alldaydata</td>
+                <td>
+                    <% if @schedule.allDay %>
+                    ◯
+                    <% end %>
+                </td>
             </tr>
             <tr>
                 <th>メモ</th>
-                <td>memodata</td>
+                <td><%= @schedule.memo %></td>
             </tr>
         </table>
     </section>

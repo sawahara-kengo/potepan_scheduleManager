@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2024_05_26_221540) do
 
   create_table "schedules", force: :cascade do |t|
     t.string "title"
-    t.date "start"
-    t.date "end"
+    t.date "startDay"
+    t.date "endDay"
     t.boolean "allDay"
     t.text "memo"
     t.datetime "created_at", precision: 6, null: false

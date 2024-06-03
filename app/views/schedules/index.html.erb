@@ -2,7 +2,9 @@
 <div class="index container-fluid">
 
     <% if flash[:notice] %>
-        <p class="notice"><%= flash[:notice] %></p>
+        <div class="alert alert-success">
+            <p><%= flash[:notice] %></p>
+        </div>
     <% end %>
 
     <div class="indexHeader">
@@ -34,17 +36,17 @@
                         <tr>
                             <td><%= schedule.id %></td>
                             <td><%= schedule.title %></td>
-                            <td><%= schedule.start.strftime("%Y/%m/%d") %></td>
-                            <td><%= schedule.end.strftime("%Y/%m/%d") %></td>
+                            <td><%= schedule.startDay.strftime("%Y/%m/%d") %></td>
+                            <td><%= schedule.endDay.strftime("%Y/%m/%d") %></td>
                             <td>
                                 <% if schedule.allDay %>
                                     ◯
                                 <% end %>
                             </td>
                             <td><%= schedule.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
-                            <td><%= link_to "詳細", schedule %></td>
+                            <td><%= link_to "詳細表示", schedule %></td>
                             <td><%= link_to "編集", [:edit, schedule] %></td>
-                            <td><%= link_to "削除", schedule, method: :delete %></td>
+                            <td><%= link_to "削除", schedule, method: :delete, data: { confirm: "【ID:#{schedule.id}】#{schedule.title}を削除してよろしいですか？" } %></td>
                         </tr>
                     <% end %>
                 <% else %>

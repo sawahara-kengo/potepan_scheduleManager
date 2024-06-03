@@ -1,0 +1,70 @@
+<!-- /schedules -->
+<div class="index container-fluid">
+
+    <% if flash[:notice] %>
+        <div class="alert alert-success">
+            <p><%= flash[:notice] %></p>
+        </div>
+    <% end %>
+
+    <div class="indexHeader">
+        <p class="indexHeaderTitle">すべてのスケジュール</p>
+        <button class="btn btn-success">
+            <%= link_to "<span aria-hidden='true'>+</span> 新規登録".html_safe, :new_schedule %>
+            <!--html_safeは、ラベルに含まれているHTMLタグ(span)が正常にレンダリングされるように記載している-->
+        </button>
+    </div>
+
+    <div class="indexMain">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th scope="col">タイトル</th>
+                    <th scope="col">開始日</th>
+                    <th scope="col">終了日</th>
+                    <th scope="col">終日</th>
+                    <th scope="col">更新日時</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if @schedules.count > 0 %>
+                    <% @schedules.each do |schedule| %>
+                        <tr>
+                            <td><%= schedule.id %></td>
+                            <td><%= schedule.title %></td>
+                            <td><%= schedule.startDay.strftime("%Y/%m/%d") %></td>
+                            <td><%= schedule.endDay.strftime("%Y/%m/%d") %></td>
+                            <td>
+                                <% if schedule.allDay %>
+                                    ◯
+                                <% end %>
+                            </td>
+                            <td><%= schedule.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
+                            <td><%= link_to "詳細表示", schedule %></td>
+                            <td><%= link_to "編集", [:edit, schedule] %></td>
+                            <td><%= link_to "削除", schedule, method: :delete, data: { confirm: "【ID:#{schedule.id}】#{schedule.title}を削除してよろしいですか？" } %></td>
+                        </tr>
+                    <% end %>
+                <% else %>
+                    <td colspan="9">現在登録されているスケジュールはありません</td>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="indexFooter card-body">
+        <p>合計スケジュール数：
+            <% if @schedules.count > 0 %>
+                <%= @schedules.count %>
+            <% else %>
+                0
+            <% end %>
+            件
+        </p>
+        <p>本日の日付：<%= Time.zone.today.strftime("%Y/%m/%d") %></p>
+    </div>
+</div>
